@@ -53,7 +53,6 @@ class ViewController: UIViewController {
         temporalyNumberBox = "1"
         actionsAfterNumberPressing()
     }
-    
     @IBAction func press2number(_ sender: UIButton) {
         temporalyNumberBox = "2"
         actionsAfterNumberPressing()
@@ -62,11 +61,51 @@ class ViewController: UIViewController {
         temporalyNumberBox = "3"
         actionsAfterNumberPressing()
     }
+    @IBAction func press4number(_ sender: UIButton) {
+        temporalyNumberBox = "4"
+        actionsAfterNumberPressing()
+    }
+    @IBAction func press5number(_ sender: UIButton) {
+        temporalyNumberBox = "5"
+        actionsAfterNumberPressing()
+    }
+    @IBAction func press6number(_ sender: UIButton) {
+        temporalyNumberBox = "6"
+        actionsAfterNumberPressing()
+    }
+    @IBAction func press7number(_ sender: UIButton) {
+        temporalyNumberBox = "7"
+        actionsAfterNumberPressing()
+    }
+    @IBAction func press8number(_ sender: UIButton) {
+        temporalyNumberBox = "8"
+        actionsAfterNumberPressing()
+    }
+    @IBAction func press9number(_ sender: UIButton) {
+        temporalyNumberBox = "9"
+        actionsAfterNumberPressing()
+    }
+    @IBAction func press0number(_ sender: UIButton) {
+        temporalyNumberBox = "0"
+        actionsAfterNumberPressing()
+    }
     
+    @IBAction func Percent(_ sender: UIButton) {
+        if isThisFirstNumber{
+            
+        } else {
+            firstNumberFloat = Float(firstNumber) ?? 0.0
+            secondNumberFloat = Float (secondNumber) ?? 0.0
+            secondNumberFloat = firstNumberFloat * secondNumberFloat / 100
+            secondNumber = String(secondNumberFloat)
+            FinishLabel.text = secondNumberw
+        }
+    }
     
     @IBAction func AdditionAction(_ sender: UIButton) {
-        if firstNumber == "" {
-            
+        if firstNumber == "-" {
+            FinishLabel.text = ""
+            firstNumber = ""
         } else {
             isThisFirstNumber = false
             actionType = MathAction.additionAction
@@ -75,7 +114,8 @@ class ViewController: UIViewController {
     
     @IBAction func NegativeAdditionAction(_ sender: UIButton) {
         if firstNumber == "" {
-            
+            temporalyNumberBox = "-"
+            actionsAfterNumberPressing()
         } else {
             isThisFirstNumber = false
             actionType = MathAction.negativeAdditionAction
@@ -126,13 +166,15 @@ class ViewController: UIViewController {
         FinishLabel.text = ""
         temporalyNumberBox = ""
             firstNumber = ""
-            isThisFirstNumber = true
             secondNumber = ""
+        isThisFirstNumber = true
     }
     
     @IBAction func FinishButton(_ sender: UIButton) {
         decide(mathAction: actionType)
         FinishLabel.text = "\(finishNumber)"
+        secondNumber = ""
+        firstNumber = String(finishNumber)
     }
 }
 
