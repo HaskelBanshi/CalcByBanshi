@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     case negativeAdditionAction
     case multiplication
     case division
+    case power
     }
     
     override func viewDidLoad() {
@@ -123,19 +124,22 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func PowerAction(_ sender: UIButton) {
+        if firstNumber != "" {
+            isThisFirstNumber = false
+            actionType = MathAction.power
+        }
+    }
+    
     @IBAction func multiplyAction(_ sender: UIButton) {
-        if firstNumber == "" {
-            
-        } else {
+        if firstNumber != "" {
             isThisFirstNumber = false
             actionType = MathAction.multiplication
         }
     }
     
     @IBAction func divideAction(_ sender: UIButton) {
-        if firstNumber == "" {
-            
-        } else {
+        if firstNumber != "" {
             isThisFirstNumber = false
             actionType = MathAction.division
         }
@@ -159,7 +163,9 @@ class ViewController: UIViewController {
         finishNumber = firstNumberFloat * secondNumberFloat
     case MathAction.division:
         finishNumber = firstNumberFloat / secondNumberFloat
-    }
+        case MathAction.power:
+            finishNumber = Float(pow(firstNumberFloat, secondNumberFloat))
+        }
     }
     
     @IBAction func Сancel(_ sender: UIButton) {
