@@ -98,7 +98,7 @@ class ViewController: UIViewController {
             secondNumberFloat = Float (secondNumber) ?? 0.0
             secondNumberFloat = firstNumberFloat * secondNumberFloat / 100
             secondNumber = String(secondNumberFloat)
-            FinishLabel.text = secondNumberw
+            FinishLabel.text = secondNumber
         }
     }
     
