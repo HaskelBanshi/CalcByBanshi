@@ -91,6 +91,13 @@ class ViewController: UIViewController {
         actionsAfterNumberPressing()
     }
     
+    
+    @IBAction func sqrtAction(_ sender: UIButton) {
+        if firstNumber == "" {
+        
+        }
+    }
+    
     @IBAction func Percent(_ sender: UIButton) {
         if isThisFirstNumber{
             
