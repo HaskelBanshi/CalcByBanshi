@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     case multiplication
     case division
     case power
+    case sqrt
     }
     
     override func viewDidLoad() {
@@ -93,10 +94,17 @@ class ViewController: UIViewController {
     
     
     @IBAction func sqrtAction(_ sender: UIButton) {
-        if firstNumber == "" {
-        
+        if firstNumber != "" {
+            isThisFirstNumber = false
+            
+           actionType = MathAction.sqrt
+            decide(mathAction: MathAction.sqrt)
+            FinishLabel.text = "\(finishNumber)"
+            secondNumber = ""
+            firstNumber = String(finishNumber)
         }
     }
+    
     
     @IBAction func Percent(_ sender: UIButton) {
         if isThisFirstNumber{
@@ -172,11 +180,13 @@ class ViewController: UIViewController {
         finishNumber = firstNumberFloat / secondNumberFloat
         case MathAction.power:
             finishNumber = Float(pow(firstNumberFloat, secondNumberFloat))
+        case MathAction.sqrt:
+            finishNumber = sqrt(firstNumberFloat)
         }
     }
     
     @IBAction func Сancel(_ sender: UIButton) {
-        FinishLabel.text = ""
+        FinishLabel.text = "Press Any Key"
         temporalyNumberBox = ""
             firstNumber = ""
             secondNumber = ""
